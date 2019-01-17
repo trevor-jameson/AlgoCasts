@@ -8,19 +8,24 @@
 //   reverseInt(-15) === -51
 //   reverseInt(-90) === -9
 
+// Tests passing
+// function reverseInt(n) {
+//     if (n > 0) {
+//         return flip(n)
+//     }
+//     if (n === 0) {
+//         return n
+//     }
+//     if (n < 0) {
+//         return (flip(n) - flip(n) * 2)
+//     }
+//     function flip(int) {
+//         return parseInt(int.toString().match(/\d/gm).reverse().join(''))
+//     }
+// }
+
 function reverseInt(n) {
-    if (n > 0) {
-        return flip(n)
-    }
-    if (n === 0) {
-        return n
-    }
-    if (n < 0) {
-        return (flip(n) - flip(n) * 2)
-    }
-    function flip(int) {
-        return parseInt(int.toString().match(/\d/gm).reverse().join(''))
-    }
+    return parseInt(n.toString().match(/\d/gm).reverse().join('')) * Math.sign(n)
 }
 
 module.exports = reverseInt;
