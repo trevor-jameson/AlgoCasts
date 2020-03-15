@@ -8,6 +8,9 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+function fib(n, counter = 1, tuple = [0, 1]) {
+    if (counter === n) { return tuple[1] }
+    return fib(n, counter + 1, [tuple[1], tuple[0] + tuple[1]])
+}
 
 module.exports = fib;
