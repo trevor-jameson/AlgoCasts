@@ -12,6 +12,30 @@
 //   l.insertLast('c')
 //   midpoint(l); // returns { data: 'b' }
 
-function midpoint(list) {}
+// Original attempt
+// function midpoint(list) {
+//     const clonedList = Object.assign( Object.create( Object.getPrototypeOf(list)), list)
+//     let frontNode = clonedList.getFirst()
+//     let backNode = clonedList.getLast()
+//     while (!frontNode && !backNode) {
+//         if (frontNode === backNode) { return frontNode }
+//         frontNode = clonedList.getFirst()
+//         backNode = clonedList.getLast()
+//         clonedList.removeFirst()
+//         clonedList.removeLast()
+//     }
+//     if (!backNode) { return frontNode }
+//     if (!frontNode) { return backNode}
+// }
+
+function midpoint(list) {
+    let slow = list.head
+    let fast = list.head
+    while (fast.next && fast.next.next) {
+        slow = slow.next
+        fast = fast.next.next
+    }
+    return slow
+}
 
 module.exports = midpoint;
